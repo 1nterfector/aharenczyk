@@ -49,11 +49,6 @@ switch (($_POST['catID']))
 				(product.ComponentID =:catID -2 
 				OR product.ComponentID =:catID 
 				OR product.ComponentID =:catID +1
-				OR product.ComponentID =:catID +2
-				OR product.ComponentID =:catID +3
-				OR product.ComponentID =:catID +4 
-				OR product.ComponentID =:catID +5
-				OR product.ComponentID =:catID +6 
 				) ORDER BY product.ComponentID ASC");
 
 			$question->bindParam(':prID', $_POST['prID'], PDO::PARAM_INT);
