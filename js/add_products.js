@@ -3,30 +3,16 @@ $(document).ready
 (
   function prodView()
   {
-    $('.cat').on("click",sendPost);
-  
-    function sendPost()
-    {
-      if(filterOn===false)
-      {
-   		var id = $(this).attr('component-id');
-     	$.post('ajax/products.php', {id:id}, resultHandler(id));
-      }
-   	}
-  
-   	function resultHandler(output)
-   	{
-   		function showResult(data)
-   		{
-
-   		$("div[component-id="+output+"]" ).html(data);
-   		}
-
-    return showResult;
-   	}
-
-   
+     	$.post('ajax/products.php', 
+        function(data)
+        {
+          data+= "<!--KONIEC-->";
+          for(i=1;i<=9;i++)
+          {
+            $("div[component-id="+i+"]" ).html(addingFilteredProducts(i,data,10,1));
+          } 
+        }
+        );
   } 
 );
 //--------------------------
-

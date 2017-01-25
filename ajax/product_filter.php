@@ -58,15 +58,19 @@ switch (($_POST['catID']))
 
 			$call = $question->fetchAll();
 			
+			echo(json_encode($call));
+
 			
 
-			foreach ($call as $param) 
+
+
+			/*foreach ($call as $param) 
 			{	
 				
 				$categoryID = $param['ComponentID'] +1;
 				echo "<!--"."kategoria-".$param['ComponentID']."-->".PHP_EOL.'<button class="btn prod" " data-toggle="collapse" data-target="#component-list-'.$param['ComponentID'].'" type="button" onclick="listFilter('.$param['ProductID'].','.$categoryID.')" product-id="'.$param['ProductID'].'">'.$param['Name'].'</button>'.PHP_EOL;
 			}
-
+*/
 			
 			break;		
 	case '4': break;

@@ -18,10 +18,12 @@
 	<!--Pliki JS,CSS,czcionek-->
 	<link rel="stylesheet" type="text/css" href="css/style.css" defer>
 	<link href="https://fonts.googleapis.com/css?family=Teko:400,700|Anonymous+Pro:400,700|Space+Mono:400,700|VT323&amp;subset=latin-ext" rel="stylesheet">
+	<script src="js/functions.js" defer></script>
 	<script src="js/create_categories.js" defer></script>
+	<script src="js/products_filter_receiver.js" defer></script>
 	<script src="js/add_products.js" defer></script>
 	<script src="js/add_interfaces.js" defer></script>
-	<script src="js/test_scripts/script.js" defer></script>
+	
 	<!---->
 	<!--Tytuł-->
 	<title>PConfig</title>
