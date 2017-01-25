@@ -1,0 +1,39 @@
+(3,23,1),(7,23,4),(8,23,1),(23,23,4),(14,23,1),(11,23,6),(53,23,2),(54,23,1),(93,23,1),(56,23,1),(40,23,1),(32,23,1),(20,23,1),
+
+1 LGA 1150
+3 LGA 1151
+4 LGA 2011v3
+2 LGA 1155
+6 DDR3 
+7 DDR4 
+8 M.2 
+11 SATA 3 
+14 PCI-E 3.0 x16
+20 PCI-E 3.0 x4 
+23 PCI-E 3.0 x1 
+24 PCI 
+40 ATX 8 pin
+43 ATX 4 pin
+56 PWR ATX 24 pin
+53 Front USB 2.0
+54 Front USB 3.0
+93 Front audio
+109 SATA Express 
+32 ATX 
+33 Micro ATX
+34 eATX
+37 PCI-E 6 pin
+38 PCI-E 8 pin
+
+														   ATX      MicroATX  eATX
+INSERT INTO slots (InterfaceID,ProductID,Quantity) VALUES (32,81,-1),(33,81,-1);
+INSERT INTO slots (InterfaceID,ProductID,Quantity) VALUES (32,82,-1),(33,82,-1);
+INSERT INTO slots (InterfaceID,ProductID,Quantity) VALUES (32,83,-1),(33,83,-1);
+INSERT INTO slots (InterfaceID,ProductID,Quantity) VALUES (32,84,-1),(33,84,-1);
+INSERT INTO slots (InterfaceID,ProductID,Quantity) VALUES (32,85,-1),(33,85,-1);
+INSERT INTO slots (InterfaceID,ProductID,Quantity) VALUES (32,86,-1),(33,86,-1),(34,86,-1);
+INSERT INTO slots (InterfaceID,ProductID,Quantity) VALUES (32,87,-1),(33,87,-1),(34,87,-1);
+INSERT INTO slots (InterfaceID,ProductID,Quantity) VALUES (32,88,-1),(33,88,-1);
+INSERT INTO slots (InterfaceID,ProductID,Quantity) VALUES (32,89,-1),(33,89,-1),(34,89,-1);
+INSERT INTO slots (InterfaceID,ProductID,Quantity) VALUES (33,90,-1);
+

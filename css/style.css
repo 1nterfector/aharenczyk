@@ -1,0 +1,302 @@
+body
+{
+	background-image: url("img/bg/black_paper.png");
+	color: #ffffff;
+
+}
+#logo1
+{
+	margin-left: 10px;
+	height: 90px;
+	font-size: 90px;
+	font-family: 'Teko', sans-serif;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+	letter-spacing: 2px;
+}
+#logo2
+{
+	margin-left: 10px;
+	margin-top: 10px;
+	font-size: 30px;
+	font-family: 'Teko', sans-serif;
+	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+#container
+{
+background-image: url("img/bg/textured_paper.png");
+width: 900px;
+min-height: 900px;
+margin-left: auto;
+margin-right: auto;
+margin-top: 0px;
+font-family: 'VT323', monospace;
+font-size: 15px;
+}
+#config
+{
+	margin-top: 20px;
+	float:left;
+	min-height: 550px;
+	color:black;
+	position: relative;
+}
+#products
+{
+	margin-top: 20px;
+	float:left;
+	color:black;
+	min-height: 550px;
+	position: relative;
+}
+.cat
+{
+	background-color: #000000;
+	border-color: black;
+	min-width:350px;
+	color:white;
+	border:2px;
+	border-radius: 5px;
+	margin-top: 10px;
+	font-size: 25px;
+	padding: 5px;
+	min-height: 35px;
+	max-width: 350px;
+	max-height: 40px;
+	
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+
+
+}
+.cat:focus
+{
+	color: white;
+	background-color: #565656;
+	outline:0;
+}
+.cat:hover
+{
+	color:white;
+	background-color: #3e3e3e;
+}
+.cat:active:focus
+{
+	box-shadow: none;
+	color: #ffffff; 
+	background-color: #790808; 
+	border-color: #000000;
+	outline:0;
+
+}
+
+.scroll
+{
+	width:330px;
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+
+}
+.prod
+{
+	background-color: #790808;
+	border-color: black;
+	color:white;
+	border-radius: 5px;
+	margin-top: 5px;
+	font-size: 15px;
+	width: 315px;
+	
+}
+.prod:focus
+{
+	color: white;
+	background-color: #8A1919;
+	outline:0;
+	border-color: #000000;
+}
+
+.prod:hover
+{
+	color:white;
+	background-color: #8A1919;
+	border-color: #000000;
+}
+.well
+{
+	padding: 10px;
+	background-color: #aaaaaa;
+	color: white;
+	border:0px;
+	max-width:350px;
+}
+
+.prod:active:focus
+{
+	box-shadow: none;
+	color: #ffffff; 
+	background-color: #680707; 
+	border-color: #000000;
+	outline:0;
+
+}
+::-webkit-scrollbar
+{
+  width: 12px;  /* for vertical scrollbars */
+  height: 12px; /* for horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track
+{
+  background: rgba(0, 0, 0, 0.3);
+}
+
+::-webkit-scrollbar-thumb
+{
+  background: rgba(0, 0, 0, 0.6);
+  border-radius: 5px;
+}
+.inter
+{
+	background-color: #000000;
+	border-color: black;
+	color:white;
+	border-radius: 5px;
+	font-size: 12px;
+	margin-right: 4px;
+	float: left;
+}
+.inter:focus
+{
+	color: white;
+	background-color: #565656;
+	outline:0;
+}
+.inter:hover
+{
+	color:white;
+	background-color: #3e3e3e;
+	
+}
+.inter:active:focus
+{
+	box-shadow: none;
+	color: #ffffff; 
+	background-color: #790808; 
+	border-color: #000000;
+	outline:0;
+
+}
+.scroll2
+{
+   	max-width: 350px;
+   	min-height: 39px;
+   	overflow-x: scroll;
+   	overflow-y: hidden;
+   	border: 2px;
+   	border-radius:5px; 
+   	background-color: rgba(0, 0, 0, 0.55);
+   	background-color: #aaaaaa;
+}
+
+.dropdown-menu
+{
+	
+	background-color: #aaaaaa;
+	color: white;
+	border:0px;
+	text-align: center;
+}
+.num
+{
+	background-color: #000000;
+	border-color: black;
+	max-width:40px;
+	min-width: 30px;
+	color:white;
+	border:2px;
+	border-radius: 5px;
+	margin-top: 10px;
+	font-size: 25px;
+	padding: 5px;
+	min-height: 35px;
+}
+
+
+
+.note + .tooltip > .tooltip-inner 
+{
+      background-color: #73AD21; 
+      color: #FFFFFF; 
+      border: 1px solid green; 
+      padding: 15px;
+      font-size: 20px;
+  }
+.chosen-cfg
+{
+	background-color: #790808;
+	border-color: black;
+	min-width:350px;
+	color:white;
+	border:2px;
+	border-radius: 5px;
+	margin-top: 10px;
+	font-size: 25px;
+	padding: 5px;
+	min-height: 35px;
+	max-width: 350px;
+	max-height: 40px;
+	
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+
+
+}
+.chosen-cfg:focus
+{
+	color: white;
+	background-color: #8A1919;
+	outline:0;
+	border-color: #000000;
+}
+
+.chosen-cfg:hover
+{
+	color:white;
+	background-color: #8A1919;
+	border-color: #000000;
+}
+.chosen-cfg:active:focus
+{
+	box-shadow: none;
+	color: #ffffff; 
+	background-color: #790808; 
+	border-color: #000000;
+	outline:0;
+
+}
+.cat-off
+{
+	background-color: #790808;
+	border-color: black;
+	min-width:350px;
+	color:white;
+	border:2px;
+	border-radius: 5px;
+	margin-top: 10px;
+	font-size: 25px;
+	padding: 5px;
+	min-height: 35px;
+	max-width: 350px;
+	max-height: 40px;
+	text-decoration: underline;
+	
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+
+
+}
