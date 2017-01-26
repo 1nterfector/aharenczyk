@@ -63,11 +63,10 @@ font-size: 15px;
 	min-height: 35px;
 	max-width: 350px;
 	max-height: 40px;
-	
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
-
+	clear: both;
 
 }
 .cat:focus

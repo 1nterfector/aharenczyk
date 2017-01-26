@@ -7,12 +7,6 @@ function addToConfig(numberOfProduct,numberOfCategory)
 }
 // -----------------------------------------------------
 
-
-// Znajduje mi wystąpienie tekstu w wyniku zwracanym od posta
-var something ='';
-var categoryCount = (something.match(/<!--kategoria-2-->/g) || []).length;
-//--------------
-
 // Funkcja jest w stanie otrzymany specjalnie sformatowany tekst podzielić na kawałki i wrzucić tam gdzie chcę
 function addingFilteredProducts(categoryNumer,sendedInfo,oneMoreThanMaxCat,step)
 {
@@ -21,13 +15,24 @@ function addingFilteredProducts(categoryNumer,sendedInfo,oneMoreThanMaxCat,step)
     if (endingSignal===oneMoreThanMaxCat) findWhereToEnd =  sendedInfo.indexOf("<!--KONIEC-->");
     else var findWhereToEnd = sendedInfo.indexOf("<!--kategoria-"+endingSignal+"-->");
     $("div[category-id="+categoryNumer+"]" ).html(sendedInfo.substring(findWhereToStart, findWhereToEnd));
-    console.log("--------SEPARATOR--------\n"+sendedInfo.substring(findWhereToStart, findWhereToEnd)+"--------SEPARATOR--------\n");
 }
 //--------------
 
 
-function JSONreading()
+function JSONreading(returnedTable)
 {
+	var howManyProds=returnedTable.length-1;
 
+	for(i=0;i<=howManyProds;i++)
+	{
+	   
+	    $("div[category-id="+returnedTable[i].ComponentID+"]" ).html('');
+	}
+	for(i=0;i<=howManyProds;i++)
+	{
+	   var nextCategory = parseInt(returnedTable[i].ComponentID)+1;
+	   $("div[category-id="+returnedTable[i].ComponentID+"]" ).append('<button class=\"btn prod\" data-toggle=\"collapse\" data-target=\"#component-list-'+returnedTable[i].ComponentID+'\" type=\"button\" onclick=\"listFilter('+returnedTable[i].ProductID+','+nextCategory+')\" product-id=\"'+returnedTable[i].ProductID+'\">'+returnedTable[i].Name+'</button>');
+	   console.log(returnedTable[i].Name+"Pętla biegnie po raz "+i);
+	}
 }
 

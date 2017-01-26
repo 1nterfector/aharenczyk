@@ -51,3 +51,36 @@ DELETE FROM `slots` WHERE ProductID = 9 AND InterfaceID = 7;
 DELETE FROM `slots` WHERE ProductID = 10 AND InterfaceID = 7;
 
 SELECT * FROM `slots` WHERE ProductID BETWEEN 21 AND 30 ORDER BY `ProductID`  ASC 
+
+Intel Core i7 5820K 
+
+INSERT INTO product(BrandID, ComponentID, Name, Price) VALUES (1,2,"Intel Core i7 6800K 3,4 GHz",2059);
+INSERT INTO product(BrandID, ComponentID, Name, Price) VALUES (1,2,"Intel Core i7 5930K 3,5 GHz",2839);
+INSERT INTO product(BrandID, ComponentID, Name, Price) VALUES (1,2,"Intel Core i7 6850K 3,6 GHz",2909);
+INSERT INTO product(BrandID, ComponentID, Name, Price) VALUES (1,2,"Intel Core i7 6900K 3,2 GHz",5185);
+
+
+INSERT INTO `slots`(`InterfaceID`, `ProductID`, `Quantity`) VALUES (4,92,1);
+INSERT INTO `slots`(`InterfaceID`, `ProductID`, `Quantity`) VALUES (4,93,1);
+INSERT INTO `slots`(`InterfaceID`, `ProductID`, `Quantity`) VALUES (4,94,1);
+INSERT INTO `slots`(`InterfaceID`, `ProductID`, `Quantity`) VALUES (4,95,1);
+INSERT INTO `slots`(`InterfaceID`, `ProductID`, `Quantity`) VALUES (4,96,1);
+INSERT INTO `slots`(`InterfaceID`, `ProductID`, `Quantity`) VALUES (4,97,1);
+INSERT INTO `interface`(`Name`) VALUES ("CPU_DDR3"),("CPU_DDR4");
+
+SELECT * FROM `slots` WHERE ProductID IN(1,2,3,4,5,6,7,8,9,10,91,92,93,94,95,96,97) ORDER BY `ProductID`  ASC 
+
+INSERT INTO `slots`(`InterfaceID`, `ProductID`, `Quantity`) VALUES (112,21,1),(111,21,1);
+INSERT INTO `slots`(`InterfaceID`, `ProductID`, `Quantity`) VALUES (112,22,1),(111,22,1);
+INSERT INTO `slots`(`InterfaceID`, `ProductID`, `Quantity`) VALUES (112,23,1),(111,23,1);
+INSERT INTO `slots`(`InterfaceID`, `ProductID`, `Quantity`) VALUES (112,30,1),(111,30,1);
+INSERT INTO `slots`(`InterfaceID`, `ProductID`, `Quantity`) VALUES (111,24,1);
+INSERT INTO `slots`(`InterfaceID`, `ProductID`, `Quantity`) VALUES (111,25,1);
+INSERT INTO `slots`(`InterfaceID`, `ProductID`, `Quantity`) VALUES (111,29,1);
+INSERT INTO `slots`(`InterfaceID`, `ProductID`, `Quantity`) VALUES (111,28,1);
+INSERT INTO `slots`(`InterfaceID`, `ProductID`, `Quantity`) VALUES (112,26,1);
+INSERT INTO `slots`(`InterfaceID`, `ProductID`, `Quantity`) VALUES (112,27,1);
+
+SELECT * FROM `product` JOIN slots ON product.ProductID=slots.ProductID JOIN interface ON slots.InterfaceID=interface.InterfaceID WHERE ComponentID=2 ORDER BY product.ProductID ASC , interface.Name
+
+SELECT * FROM `product` JOIN slots ON product.ProductID=slots.ProductID JOIN interface ON slots.InterfaceID=interface.InterfaceID WHERE ComponentID=1 AND slots.InterfaceID IN(1,2,3,4,111,112) ORDER BY product.ProductID ASC , interface.Name
