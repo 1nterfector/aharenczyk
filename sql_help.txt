@@ -25,17 +25,37 @@
 37 PCI-E 6 pin
 38 PCI-E 8 pin
 
-														
 
-INSERT INTO slots (InterfaceID,ProductID,Quantity) VALUES (110,1,0),(6,1,0),(7,1,0);
-INSERT INTO slots (InterfaceID,ProductID,Quantity) VALUES (110,2,0),(6,2,0);
-INSERT INTO slots (InterfaceID,ProductID,Quantity) VALUES (110,3,0),(6,3,0);
-INSERT INTO slots (InterfaceID,ProductID,Quantity) VALUES (110,4,0),(6,4,0);
-INSERT INTO slots (InterfaceID,ProductID,Quantity) VALUES (110,5,0),(6,5,0);
-INSERT INTO slots (InterfaceID,ProductID,Quantity) VALUES (110,6,0),(6,6,0);
-INSERT INTO slots (InterfaceID,ProductID,Quantity) VALUES (110,7,0),(6,7,0),(7,7,0);
-INSERT INTO slots (InterfaceID,ProductID,Quantity) VALUES (110,8,0),(6,8,0),(7,8,0);
-INSERT INTO slots (InterfaceID,ProductID,Quantity) VALUES (110,9,0),(6,9,0),(7,9,0);
+DDR3
+35
+36
+37
+														
+DLA DDR4 jest 3 i 4
+
+INSERT INTO slots (InterfaceID,ProductID,Quantity) VALUES (3,31,1),(4,31,1);
+INSERT INTO slots (InterfaceID,ProductID,Quantity) VALUES (3,32,1),(4,32,1);
+INSERT INTO slots (InterfaceID,ProductID,Quantity) VALUES (3,33,1),(4,33,1);
+INSERT INTO slots (InterfaceID,ProductID,Quantity) VALUES (3,34,1),(4,34,1);
+INSERT INTO slots (InterfaceID,ProductID,Quantity) VALUES (3,38,1),(4,38,1);
+INSERT INTO slots (InterfaceID,ProductID,Quantity) VALUES (3,39,1),(4,39,1);
+INSERT INTO slots (InterfaceID,ProductID,Quantity) VALUES (3,40,1),(4,40,1);
+
+
+INSERT INTO slots (InterfaceID,ProductID,Quantity) VALUES (1,35,1),(2,35,1);
+INSERT INTO slots (InterfaceID,ProductID,Quantity) VALUES (1,36,1),(2,36,1);
+INSERT INTO slots (InterfaceID,ProductID,Quantity) VALUES (1,37,1),(2,37,1);
+
+
+31
+32
+33
+34
+38
+39
+40
+DDR4
+
 INSERT INTO slots (InterfaceID,ProductID,Quantity) VALUES (110,10,0),(6,10,0),(7,10,0);
 
 
@@ -84,3 +104,107 @@ INSERT INTO `slots`(`InterfaceID`, `ProductID`, `Quantity`) VALUES (112,27,1);
 SELECT * FROM `product` JOIN slots ON product.ProductID=slots.ProductID JOIN interface ON slots.InterfaceID=interface.InterfaceID WHERE ComponentID=2 ORDER BY product.ProductID ASC , interface.Name
 
 SELECT * FROM `product` JOIN slots ON product.ProductID=slots.ProductID JOIN interface ON slots.InterfaceID=interface.InterfaceID WHERE ComponentID=1 AND slots.InterfaceID IN(1,2,3,4,111,112) ORDER BY product.ProductID ASC , interface.Name
+
+
+SELECT DISTINCT product.Name , product.ProductID, ComponentID, slots.InterfaceID, slots.Quantity, interface.Name FROM product JOIN slots ON product.ProductID=slots.ProductID JOIN interface ON slots.InterfaceID=interface.InterfaceID WHERE ComponentID=4  ORDER BY product.ProductID ASC, product.Name
+
+UPDATE `slots` SET `Quantity`= 128 WHERE ProductID IN (38) AND InterfaceID IN(7,6);
+
+
+
+											116- 16GB  113- 32GB  114- 64GB  115- 128GB 
+
+INSERT INTO `slots`(`InterfaceID`, `ProductID`, `Quantity`) VALUES (115,31,2),(114,31,2),(113,31,2),(116,31,2);
+INSERT INTO `slots`(`InterfaceID`, `ProductID`, `Quantity`) VALUES (113,32,4),(114,32,2),(115,32,2),(116,32,2)
+INSERT INTO `slots`(`InterfaceID`, `ProductID`, `Quantity`) VALUES (113,33,2),(114,33,2),(115,33,2),(116,33,2);
+INSERT INTO `slots`(`InterfaceID`, `ProductID`, `Quantity`) VALUES (113,34,2),(114,34,2),(115,34,2),(116,34,2);
+INSERT INTO `slots`(`InterfaceID`, `ProductID`, `Quantity`) VALUES (113,35,2),(114,35,2),(115,35,2),(116,35,2);
+INSERT INTO `slots`(`InterfaceID`, `ProductID`, `Quantity`) VALUES (113,36,2),(114,36,2),(115,36,2),(116,36,2);
+INSERT INTO `slots`(`InterfaceID`, `ProductID`, `Quantity`) VALUES (115,37,8);
+INSERT INTO `slots`(`InterfaceID`, `ProductID`, `Quantity`) VALUES (115,38,8);
+INSERT INTO `slots`(`InterfaceID`, `ProductID`, `Quantity`) VALUES (115,39,8);
+INSERT INTO `slots`(`InterfaceID`, `ProductID`, `Quantity`) VALUES (115,40,1),(114,40,1),(113,40,1),(116,40,1);
+
+  
+
+
+
+
+
+SELECT DISTINCT slots.ProductID, Name, ComponentID, slots.Quantity FROM product 
+				JOIN slots ON product.ProductID = slots.ProductID 
+				WHERE slots.InterfaceID IN (SELECT InterfaceID FROM slots WHERE ProductID = 37) 
+				AND 
+				(product.ComponentID =4 
+				OR product.ComponentID =2 
+				OR product.ComponentID =1 
+				)AND( ANY (SELECT slots.Quantity FROM slots WHERE slots.InterfaceID IN (6,7) AND slots.ProductID=37)<= (SELECT slots.Quantity FROM slots JOIN product ON product.ProductID=slots.ProductID WHERE slots.InterfaceID IN (6,7) AND product.ComponentID = 1))
+ ORDER BY product.ComponentID ASC
+
+
+
+
+SELECT slots.Quantity FROM slots JOIN product ON product.ProductID=slots.ProductID WHERE slots.InterfaceID IN (6,7) AND product.ComponentID = 1
+
+
+
+
+
+SELECT * FROM `slots` JOIN interface ON USING(IntefaceID) JOIN product USING(ProductID) WHERE ComponentID=1 AND InterfaceID IN(6,7) ORDER BY `slots`.`ProductID` ASC
+
+
+SELECT slots.Quantity FROM slots JOIN product ON product.ProductID=slots.ProductID WHERE slots.InterfaceID IN (6,7) AND product.ComponentID = 1 AND slots.InterfaceID IN(SELECT InterfaceID FROM slots WHERE ProductID = 37)
+
+
+SELECT DISTINCT slots.ProductID, Name, ComponentID, slots.Quantity FROM product 
+				JOIN slots ON product.ProductID = slots.ProductID 
+				WHERE slots.InterfaceID IN (SELECT InterfaceID FROM slots WHERE ProductID = 37) 
+				AND 
+				(product.ComponentID =4 
+				OR product.ComponentID =2 
+				OR product.ComponentID =1 
+				)AND (  (SELECT slots.Quantity FROM slots WHERE slots.InterfaceID IN (6,7) AND slots.ProductID=37)<= ANY (SELECT slots.Quantity FROM slots JOIN product ON product.ProductID=slots.ProductID WHERE slots.InterfaceID IN (6,7) AND product.ComponentID = 1 AND slots.InterfaceID IN(SELECT InterfaceID FROM slots WHERE ProductID = 37)))
+ ORDER BY product.ComponentID ASC
+
+
+
+SELECT DISTINCT 
+slots.ProductID, Name, ComponentID, slots.Quantity 
+FROM 
+product 
+JOIN 
+slots ON product.ProductID = slots.ProductID 
+WHERE 
+slots.InterfaceID 
+IN (SELECT InterfaceID FROM slots WHERE ProductID = 38) 
+AND 
+(product.ComponentID =4 
+OR product.ComponentID =2 
+OR product.ComponentID =1
+AND 
+(  
+    (SELECT slots.Quantity FROM slots WHERE slots.InterfaceID IN (6,7) AND slots.ProductID=38)
+    <= ANY 
+    (SELECT slots.Quantity FROM slots JOIN product USING (ProductID)
+     WHERE 
+     slots.InterfaceID IN (6,7) 
+     AND 
+     product.ComponentID = 1 
+    )
+)
+)
+ ORDER BY product.ComponentID ASC
+
+
+
+ Wybierz te płyty główne, które przy swoim interface DDR mają ilość 128 bądź więcej 
+
+
+ SELECT slots.ProductID, slots.Quantity FROM slots JOIN product ON product.ProductID=slots.ProductID
+ WHERE
+
+
+ Wybierz płytę główną i żeby jej ilość przy ddr była większa lub równa ilości przy ddr tej pamięci
+
+
+ SELECT slots.Quantity FROM slots WHERE slots.InterfaceID IN (6,7) AND slots.ProductID=38

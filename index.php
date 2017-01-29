@@ -4,7 +4,7 @@
 	<!--Podstawowe informacje o stronie-->
 	<meta charset="utf-8">
 	<meta name="description" content="To jest konfigurator zestawów komputerowych. Możesz dzięki niemu stworzyć swój wymarzony komputer. Pomoże Ci wybrać odpowiednie podzespoły. Sprawdzi, czy są kompatybilne. Dzięki temu, nie musisz już się martwić, że coś nie będzie do czegoś pasowało.">
-		<meta name="keywords" content="procesor, płyta główna, karta graficzna, komputer, konfigurator, zasilacz, obudowa">
+	<meta name="keywords" content="procesor, płyta główna, karta graficzna, komputer, konfigurator, zasilacz, obudowa">
 	<meta http-equiv="X-UA-Comaptible" content="IE=edge,chrome=1">
 	<!---->
 	<!--JQuery-->
@@ -23,13 +23,11 @@
 	<script src="js/products_filter_receiver.js" defer></script>
 	<script src="js/add_products.js" defer></script>
 	<script src="js/add_interfaces.js" defer></script>
-	
 	<!---->
 	<!--Tytuł-->
 	<title>PConfig</title>
 	<link rel="Shortcut icon" href="favicon.ico" />
 	<!---->
-
 </head>
 
 <body>
@@ -41,26 +39,22 @@
 		<!--Lista konfiguratora po lewej-->
 		<div id="config"  class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
 		<!--Wybrany zestaw-->
-		<div style="font-size: 27px;width: 350px;text-align: center;margin-bottom: 0px; font-family: 'Anonymous Pro', monospace;font-weight: bold;">Wybrany zestaw</div>
+		<div style="font-size: 27px;width: 350px;text-align: center;margin-bottom: 0px; font-family: 'Anonymous Pro', monospace;font-weight: bold;">Wybrany zestaw</div></div>
 		<!---->
-		<!--Przykład-->
-		
-		 
-
-		</div><!-- float left-->
 		<!--Lista produktów-->
 		<div id="products" class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-		<div style="font-size: 27px;width: 350px;text-align: center;margin-bottom: 0px;font-family: 'Anonymous Pro', monospace;font-weight: bold;">Lista produktów</div>
-		
-
-
-		</div><!-- float left-->
-
-		<div style="clear: both;"></div>
-
+		<div style="font-size: 27px;width: 350px;text-align: center;margin-bottom: 0px;font-family: 'Anonymous Pro', monospace;font-weight: bold;">Lista produktów</div></div><div style="clear: both;"></div>
+		<!---->
 		<!--Stopka-->
-		<div id="footer"></div>
-
+		<div id="footer">
+		<button id="refresh" class="btn bottom" onclick="prodView()">ODŚWIEŻ PRODUKTY</button>
+		<button id="clear" class="btn bottom" onclick="clearConfig()">WYCZYŚĆ LISTĘ</button>
+		<button id="save" class="btn bottom">ZAPISZ ZESTAW</button>
+		<button id="load" class="btn bottom" >WCZYTAJ ZESTAW</button>
+		<button id="txt-save" class="btn bottom" onclick="saveToText()" >ZAPISZ DO PLIKU</button>
+		</div>
+		<!---->
 	</div>
+	<!--______________________-->
 </body>
 </html>

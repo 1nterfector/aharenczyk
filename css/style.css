@@ -2,7 +2,6 @@ body
 {
 	background-image: url("img/bg/black_paper.png");
 	color: #ffffff;
-
 }
 #logo1
 {
@@ -21,7 +20,6 @@ body
 	font-family: 'Teko', sans-serif;
 	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
-
 #container
 {
 background-image: url("img/bg/textured_paper.png");
@@ -67,7 +65,6 @@ font-size: 15px;
 	overflow: hidden;
 	white-space: nowrap;
 	clear: both;
-
 }
 .cat:focus
 {
@@ -87,9 +84,7 @@ font-size: 15px;
 	background-color: #790808; 
 	border-color: #000000;
 	outline:0;
-
 }
-
 .scroll
 {
 	width:330px;
@@ -107,7 +102,13 @@ font-size: 15px;
 	margin-top: 5px;
 	font-size: 15px;
 	width: 315px;
-	
+	text-shadow:
+       2px 2px 0 #000,
+     -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
+     padding: 6px;
 }
 .prod:focus
 {
@@ -139,19 +140,16 @@ font-size: 15px;
 	background-color: #680707; 
 	border-color: #000000;
 	outline:0;
-
 }
 ::-webkit-scrollbar
 {
   width: 12px;  /* for vertical scrollbars */
   height: 12px; /* for horizontal scrollbars */
 }
-
 ::-webkit-scrollbar-track
 {
   background: rgba(0, 0, 0, 0.3);
 }
-
 ::-webkit-scrollbar-thumb
 {
   background: rgba(0, 0, 0, 0.6);
@@ -177,7 +175,6 @@ font-size: 15px;
 {
 	color:white;
 	background-color: #3e3e3e;
-	
 }
 .inter:active:focus
 {
@@ -186,7 +183,6 @@ font-size: 15px;
 	background-color: #790808; 
 	border-color: #000000;
 	outline:0;
-
 }
 .scroll2
 {
@@ -199,40 +195,6 @@ font-size: 15px;
    	background-color: rgba(0, 0, 0, 0.55);
    	background-color: #aaaaaa;
 }
-
-.dropdown-menu
-{
-	
-	background-color: #aaaaaa;
-	color: white;
-	border:0px;
-	text-align: center;
-}
-.num
-{
-	background-color: #000000;
-	border-color: black;
-	max-width:40px;
-	min-width: 30px;
-	color:white;
-	border:2px;
-	border-radius: 5px;
-	margin-top: 10px;
-	font-size: 25px;
-	padding: 5px;
-	min-height: 35px;
-}
-
-
-
-.note + .tooltip > .tooltip-inner 
-{
-      background-color: #73AD21; 
-      color: #FFFFFF; 
-      border: 1px solid green; 
-      padding: 15px;
-      font-size: 20px;
-  }
 .chosen-cfg
 {
 	background-color: #790808;
@@ -243,16 +205,19 @@ font-size: 15px;
 	border-radius: 5px;
 	margin-top: 10px;
 	font-size: 25px;
-	padding: 5px;
 	min-height: 35px;
 	max-width: 350px;
 	max-height: 40px;
-	
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
-
-
+	text-shadow:
+       2px 2px 0 #000,
+     -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
+     padding: 2px;
 }
 .chosen-cfg:focus
 {
@@ -261,7 +226,6 @@ font-size: 15px;
 	outline:0;
 	border-color: #000000;
 }
-
 .chosen-cfg:hover
 {
 	color:white;
@@ -275,7 +239,6 @@ font-size: 15px;
 	background-color: #790808; 
 	border-color: #000000;
 	outline:0;
-
 }
 .cat-off
 {
@@ -287,15 +250,73 @@ font-size: 15px;
 	border-radius: 5px;
 	margin-top: 10px;
 	font-size: 25px;
-	padding: 5px;
+	padding: 2px;
 	min-height: 35px;
 	max-width: 350px;
 	max-height: 40px;
 	text-decoration: underline;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	text-shadow:
+       2px 2px 0 #000,
+     -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
+}
+#footer
+{
+	margin-top: 150px;
+}
+.bottom
+{
+	background-color:#790808;
+	margin-left:10px;
+	text-shadow:
+       2px 2px 0 #000,
+     -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
+     padding: 5px;
+     width: 100px;
+}
+.btn:hover
+{
+	color:#eeeeee;
+}
+.btn:focus
+{
+	color:#eeeeee;
+}
+.turned
+{
+	background-color: #790808;
+	border-color: black;
+	min-width:350px;
+	color:white;
+	border:2px;
+	border-radius: 5px;
+	margin-top: 10px;
+	font-size: 25px;
+	padding: 2px;
+	min-height: 35px;
+	max-width: 350px;
+	max-height: 40px;
 	
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
-
-
+	text-shadow:
+       2px 2px 0 #000,
+     -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
+}
+.turned:hover
+{
+	color:white;
+	background-color: #470505;
 }

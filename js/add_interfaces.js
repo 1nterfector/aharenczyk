@@ -1,25 +1,16 @@
 $(document).ready
 (
-  function interView()
+  function()
   {
-    $('.cat').on("click",sendPost);
-  
-    function sendPost()
-    {
- 		var id = $(this).attr('component-id');
-   		$.post('ajax/interfaces.php', {id:id}, resultHandler(id));
-   	}
-  
-   	function resultHandler(output)
-   	{
-   		function showResult(data)
-   		{
-   		$("div[component-interface-id="+output+"]").html(data);
-   		}
-
-    return showResult;
-   	}
-
-   
+      $.post('ajax/interfaces.php', 
+        function(data)
+        {
+          var output=JSON.parse(data);
+          JSONaddInterfaces(output);
+        }
+        );
   } 
 );
+
+
+

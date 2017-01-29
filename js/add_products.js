@@ -1,7 +1,6 @@
-//------Wyświetlanie produktów------
 $(document).ready
 (
-  function prodView()
+  function()
   {
      	$.post('ajax/products.php', 
         function(data)
@@ -12,4 +11,4 @@ $(document).ready
         );
   } 
 );
-//--------------------------
+

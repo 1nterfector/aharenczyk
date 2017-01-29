@@ -1,42 +1,20 @@
 <?php
-if (isset($_POST['id']) === true && empty($_POST['id']) === false )
+if ((isset($_POST['intID']) === true && empty($_POST['intID']) === false) && (isset($_POST['cmpID']) === true && empty($_POST['cmpID']) === false) )
 {
 
 require "../db/connect.php";
 
+$question=$pdo->prepare("SELECT product.Name , product.ProductID ,product.ComponentID 
+FROM product 
+JOIN slots USING(ProductID) 
+WHERE slots.InterfaceID = :intID 
+AND ComponentID = :cmpID");
 
-
-switch (($_POST['id'])) 
-{
-	case '1':
-		$question=$pdo->
-		prepare("SELECT product.Name , product.ProductID FROM product INNER JOIN slots WHERE slots.InterfaceID = :id");
-		break;
-	case '2':
-		$question=$pdo->
-		prepare("SELECT Name , ProductID FROM product WHERE ComponentID = :id");
-		break;
-	case '3':
-		$question=$pdo->
-		prepare("SELECT Name , ProductID FROM product WHERE ComponentID = :id");
-		break;
-	case '4':
-		$question=$pdo->
-		prepare("SELECT Name , ProductID FROM product WHERE ComponentID = :id");
-		break;
-	default:break;
-}
-$question->bindParam(':id', $_POST['id'], PDO::PARAM_INT);
+$question->bindParam(':intID', $_POST['intID'], PDO::PARAM_INT);
+$question->bindParam(':cmpID', $_POST['cmpID'], PDO::PARAM_INT);
 $question->execute();
-
-
 $call = $question->fetchAll();
-foreach ($call as $param) 
-{
-	
-    echo '<button class="btn btn-primary prod" type="button" onclick="insertProc(this.id); onClick()" id="cpu'.$param['ProductID'].'">'.$param['Name'].'</button>';
-
-}
+echo(json_encode($call));
 
 }
 ?>

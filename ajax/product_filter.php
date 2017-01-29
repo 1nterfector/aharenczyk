@@ -10,7 +10,7 @@ switch (($_POST['catID']))
 {
 	
 	case '2':
-			$question=$pdo->prepare(" SELECT DISTINCT slots.ProductID, Name, ComponentID FROM product 
+			$question=$pdo->prepare(" SELECT DISTINCT slots.ProductID, Name, ComponentID, slots.Quantity FROM product 
 				JOIN slots ON product.ProductID = slots.ProductID 
 				WHERE slots.InterfaceID IN (SELECT InterfaceID FROM slots WHERE ProductID = :prID) 
 				AND 
@@ -20,7 +20,6 @@ switch (($_POST['catID']))
 				OR product.ComponentID =:catID +3 
 				OR product.ComponentID =:catID +4 
 				OR product.ComponentID =:catID +5 
-				OR product.ComponentID =:catID +6 
 				OR product.ComponentID =:catID +7
 				) ORDER BY product.ComponentID ASC");
 
@@ -31,12 +30,13 @@ switch (($_POST['catID']))
 			echo(json_encode($call));
 			break;
 	case '3': 
-			$question=$pdo->prepare(" SELECT DISTINCT slots.ProductID, Name, ComponentID FROM product 
+			$question=$pdo->prepare(" SELECT DISTINCT slots.ProductID, Name, ComponentID, slots.Quantity FROM product 
 				JOIN slots ON product.ProductID = slots.ProductID 
 				WHERE slots.InterfaceID IN (SELECT InterfaceID FROM slots WHERE ProductID = :prID) 
-				AND 
+				AND  
 				(product.ComponentID =:catID -2 
-				OR product.ComponentID =:catID 
+				OR product.ComponentID =:catID
+				OR product.ComponentID =:catID -1 
 				OR product.ComponentID =:catID +1
 				) ORDER BY product.ComponentID ASC,product.ProductID ASC");
 
@@ -47,7 +47,7 @@ switch (($_POST['catID']))
 			echo(json_encode($call));
 			break;		
 	case '4':
-			$question=$pdo->prepare(" SELECT DISTINCT slots.ProductID, Name, ComponentID FROM product 
+			$question=$pdo->prepare(" SELECT DISTINCT slots.ProductID, Name, ComponentID, slots.Quantity FROM product 
 				JOIN slots ON product.ProductID = slots.ProductID 
 				WHERE slots.InterfaceID IN (SELECT InterfaceID FROM slots WHERE ProductID = :prID) 
 				AND 
@@ -60,12 +60,11 @@ switch (($_POST['catID']))
 			echo(json_encode($call));
 			break; 
 	case '5': 
-			$question=$pdo->prepare(" SELECT DISTINCT slots.ProductID, Name, ComponentID FROM product 
+			$question=$pdo->prepare(" SELECT DISTINCT slots.ProductID, Name, ComponentID, slots.Quantity FROM product 
 				JOIN slots ON product.ProductID = slots.ProductID 
 				WHERE slots.InterfaceID IN (SELECT InterfaceID FROM slots WHERE ProductID = :prID) 
 				AND 
-				(product.ComponentID =:catID-1 
-				OR product.ComponentID =:catID -3 
+				(product.ComponentID =:catID -3 
 				OR product.ComponentID =:catID -4 
 				) ORDER BY product.ComponentID ASC");
 
@@ -76,7 +75,7 @@ switch (($_POST['catID']))
 			echo(json_encode($call));
 			break;		
 	case '6':
-			$question=$pdo->prepare(" SELECT DISTINCT slots.ProductID, Name, ComponentID FROM product 
+			$question=$pdo->prepare(" SELECT DISTINCT slots.ProductID, Name, ComponentID, slots.Quantity FROM product 
 				JOIN slots ON product.ProductID = slots.ProductID 
 				WHERE slots.InterfaceID IN (SELECT InterfaceID FROM slots WHERE ProductID = :prID) 
 				AND 
@@ -89,7 +88,7 @@ switch (($_POST['catID']))
 			echo(json_encode($call));
 			break;
 	case '7':
-			$question=$pdo->prepare(" SELECT DISTINCT slots.ProductID, Name, ComponentID FROM product 
+			$question=$pdo->prepare(" SELECT DISTINCT slots.ProductID, Name, ComponentID, slots.Quantity FROM product 
 				JOIN slots ON product.ProductID = slots.ProductID 
 				WHERE slots.InterfaceID IN (SELECT InterfaceID FROM slots WHERE ProductID = :prID) 
 				AND 
@@ -102,7 +101,7 @@ switch (($_POST['catID']))
 			echo(json_encode($call));
 			break;
 	case '8':
-			$question=$pdo->prepare(" SELECT DISTINCT slots.ProductID, Name, ComponentID FROM product 
+			$question=$pdo->prepare(" SELECT DISTINCT slots.ProductID, Name, ComponentID, slots.Quantity FROM product 
 				JOIN slots ON product.ProductID = slots.ProductID 
 				WHERE slots.InterfaceID IN (SELECT InterfaceID FROM slots WHERE ProductID = :prID) 
 				AND 
@@ -115,7 +114,7 @@ switch (($_POST['catID']))
 			echo(json_encode($call));
 			break;
 	case '9':
-			$question=$pdo->prepare(" SELECT DISTINCT slots.ProductID, Name, ComponentID FROM product 
+			$question=$pdo->prepare(" SELECT DISTINCT slots.ProductID, Name, ComponentID, slots.Quantity FROM product 
 				JOIN slots ON product.ProductID = slots.ProductID 
 				WHERE slots.InterfaceID IN (SELECT InterfaceID FROM slots WHERE ProductID = :prID) 
 				AND 
@@ -131,7 +130,7 @@ switch (($_POST['catID']))
 			echo(json_encode($call));
 			break;
 	case '10':
-			$question=$pdo->prepare(" SELECT DISTINCT slots.ProductID, Name, ComponentID FROM product 
+			$question=$pdo->prepare(" SELECT DISTINCT slots.ProductID, Name, ComponentID, slots.Quantity FROM product 
 				JOIN slots ON product.ProductID = slots.ProductID 
 				WHERE slots.InterfaceID IN (SELECT InterfaceID FROM slots WHERE ProductID = :prID) 
 				AND 
