@@ -27,6 +27,7 @@ function prodView()
 //Dodawanie produktu na listę konfiguratora
 function addToConfig(numberOfProduct,numberOfCategory)
 {
+	console.log("który wybrany to "+whichChosen);
 	if(($('.chosen-cfg').length)<13)
 	{
 		var categoryPlus1=parseInt(numberOfCategory)+1
@@ -52,9 +53,13 @@ function addToConfig(numberOfProduct,numberOfCategory)
 		$("button[prod-chosed="+numberOfProduct+"]").on('click',
 		function chosenProductRemove()
 		{
+			var prodNum=parseInt($(this).attr("chosen-prod-num"));
+			logClicks.splice(prodNum,1);
 	    	$( "button[component-id="+numberOfCategory+"]" ).addClass('cat').removeClass('cat-off').removeClass('turned').attr("data-toggle","collapse");
 	    	listFilter(numberOfProduct,categoryPlus1,false);
+	    	whichChosen--;
 	    	$(this).remove();
+
 		});
 	}
 	else
@@ -124,12 +129,15 @@ function filterInterfaceBased(ComponentID,InterfaceID)
     );
 }
 //------
-
+//Zmienna informująca o tym, którym jest dodany podzespół z kolei.
+var whichChosen=0;
+//------
 //Funkcja wspomagająca, służąca do dodawania danego produktu na listę konfiguratora
 function addMultiple(numberOfCategory,numberOfProduct)
 {
 	var categoryPlus1=parseInt(numberOfCategory)+1
 	    $( "button[product-id="+numberOfProduct+"]" ).clone().appendTo('#config').removeAttr('product-id').removeClass('prod').addClass('chosen-cfg').removeAttr('data-toggle').removeAttr('onclick').attr("prod-chosed",numberOfProduct).attr("config-id",numberOfCategory).attr({
-    'title':"[ USUŃ ]\nUwaga, jeśli usuniesz produkt, lista produktów\nmoże być posortowana. Możesz przywrócić\nwszystkie produkty przyciskiem:\n[ ODŚWIEŻ PRODUKTY ]"});
+    'title':"[ USUŃ ]\nUwaga, jeśli usuniesz produkt, lista produktów\nmoże być posortowana. Możesz przywrócić\nwszystkie produkty przyciskiem:\n[ ODŚWIEŻ PRODUKTY ]"}).attr("chosen-prod-num",whichChosen);
+	    whichChosen++;
 }
 //------

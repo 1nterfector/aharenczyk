@@ -1,16 +1,12 @@
 var logClicks = [];
 var logConfiguration;
-
 function listFilter(productID,categoryID,productAdded=true)
     {
       var cmpID=categoryID-1;
       var newobject={productID:productID,categoryID:categoryID};
-      
-      logClicks.push(newobject);
+      if (productAdded===false){}else logClicks.push(newobject);
+
       logConfiguration=JSON.stringify(logClicks);
-      
-      console.log(logClicks);
-      console.log(logConfiguration);
       
       $.post('ajax/product_filter.php', {prID: productID , catID: categoryID}, 
         function (data)
@@ -35,7 +31,7 @@ $(document).ready
       function()
       {
         localStorage.setItem("Configuration", logConfiguration);
-        console.log("ZAPISAŁEM!! :D ");
+        alert("Udało się zapisać Twoją konfigurację.");
       }
       );
     $('#load').click(
@@ -45,10 +41,10 @@ $(document).ready
         obj = JSON.parse(text);
         
         var storageLength=obj.length
-
+        alert("Konfiguracja poprawnie wczytana.");
         for (var i = 0; i < storageLength; i++) 
         {
-          console.log(obj[i].categoryID);
+          
           listFilter(obj[i].productID,obj[i].categoryID);
         }
       }
